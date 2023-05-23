@@ -23,7 +23,7 @@ class SplashViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if !self.splashViewModel.initialOpen! {
                 print("Belom Pernah")
-                self.splashViewModel.setInitialOpen()
+                self.navigationController?.setViewControllers([OnBoardingViewController()], animated: true)
             }
             else {
                 print("Udah Pernah")
