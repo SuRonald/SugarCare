@@ -7,14 +7,17 @@
 
 import Foundation
 import HealthKit
+import SwiftUI
 
 class UserHealthViewModel {
+    
+    static let shared = UserHealthViewModel()
     
     let healthStore = HKHealthStore()
 //    var heightData: Double?
 //    var weightData: Double?
 //    var dobYearData: Int?
-    var sugarGrams: Int = 1
+    var sugarGrams: Int = 0
     
     var weight: Float = 0
     var height: Float = 0
@@ -91,14 +94,73 @@ class UserHealthViewModel {
     }
     
     func getSugarData() {
-
-        do {
-//            dobYearData = try healthStore.dateOfBirthComponents().year
+        self.sugarGrams = 0
+        
+        guard let sugarSampleType = HKSampleType.quantityType(forIdentifier: .dietarySugar) else {
+            return
         }
-        catch {
-            print("-----", error)
+        getMostRecentSample(for: sugarSampleType) { samples, error in
+            guard let newData = samples else {
+                if error == nil {
+                    return
+                }
+                print(error!)
+                return
+            }
+            
+            if !samples!.isEmpty {
+                for i in 0..<newData.count {
+                    self.sugarGrams += Int(newData[i].quantity.doubleValue(for: HKUnit.gram()))
+                }
+            }
         }
-
+        
+        print(self.sugarGrams)
     }
     
+    func getMostRecentSample(for sampleType: HKSampleType, completion: @escaping ([HKQuantitySample]?, Error?) -> ()) {
+//        print(Date())
+//        print(Date().dayBefore)
+        let mostRecentPredicate = HKQuery.predicateForSamples(withStart: Date().dayBefore, end: Date(), options: .strictEndDate)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        let limit = 200
+        let sampleQuery = HKSampleQuery(sampleType: sampleType, predicate: mostRecentPredicate, limit: limit, sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+            
+            DispatchQueue.main.async {
+                guard let results = samples else {
+                    completion(nil, error)
+                    return
+                }
+                
+                let todayDate = Calendar.current.component(.day, from: Date())
+                var mostRecentSample: [HKQuantitySample] = []
+                
+                for i in 0..<results.count {
+                    let newSample = results[i] as? HKQuantitySample
+                    let sampleDate = Calendar.current.component(.day, from: newSample!.startDate)
+                    
+                    if todayDate == sampleDate {
+                        mostRecentSample.append(newSample!)
+                    }
+                }
+                completion(mostRecentSample, nil)
+            }
+        }
+         
+        HKHealthStore().execute(sampleQuery)
+    }
+    
+    func saveSugarSample(dietarySugar: Double) {
+        guard let dietarySugarType = HKQuantityType.quantityType(forIdentifier: .dietarySugar) else {
+            return
+        }
+        let sugarQuantity = HKQuantity(unit: HKUnit.gram(), doubleValue: dietarySugar)
+        let dietarySugarSample = HKQuantitySample(type: dietarySugarType, quantity: sugarQuantity, start: Date(), end: Date())
+        
+        HKHealthStore().save(dietarySugarSample) { (success, error) in
+            if !success {
+                print(error)
+            }
+        }
+    }
 }

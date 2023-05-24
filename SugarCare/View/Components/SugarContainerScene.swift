@@ -6,15 +6,33 @@
 //
 
 import SpriteKit
+import SwiftUI
 
 class SugarContainerScene: SKScene {
-    var sugarCubes: Int = 1
+    
+    var sugarCubes: Int
+//    @Binding var sugarCubes: Int
+//    var box: SKSpriteNode = SKSpriteNode(imageNamed: ["Sugar1", "Sugar2", "Sugar3"].randomElement()!)
+    
+    init(_ sugarCubes: Int) {
+        self.sugarCubes = sugarCubes
+//        _sugarCubes = sugarCubes
+        super.init(size: CGSize(width: 350, height: 450))
+        self.scaleMode = .fill
+        self.backgroundColor = UIColor(named: "PastelGray")!
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.sugarCubes = 1
+//        _sugarCubes = .constant(1)
+        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func didMove(to view: SKView) {
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
-        for _ in 1...sugarCubes {
-            
+        for _ in 0..<sugarCubes {
             let box = SKSpriteNode(imageNamed: ["Sugar1", "Sugar2", "Sugar3"].randomElement()!)
             box.position = view.center
             box.size = CGSize(width: 60, height: 40)
@@ -22,15 +40,16 @@ class SugarContainerScene: SKScene {
             addChild(box)
         }
     }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
-//        let box = SKSpriteNode(color: .red, size: CGSize(width: 50, height: 50))
+    
+    func addNewSugar() {
         let box = SKSpriteNode(imageNamed: ["Sugar1", "Sugar2", "Sugar3"].randomElement()!)
-        box.position = location
+        box.position = CGPoint(x: 100, y: 100)
         box.size = CGSize(width: 60, height: 40)
         box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 60, height: 40))
         addChild(box)
+    }
+    
+    func substractSugar() {
+        self.children.first?.removeFromParent()
     }
 }

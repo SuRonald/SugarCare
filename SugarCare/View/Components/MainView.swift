@@ -12,19 +12,11 @@ struct MainView: View {
     let userHealthViewModel: UserHealthViewModel
     let mainViewController: MainViewController
     
-    var scene: SKScene {
-        let scene = SugarContainerScene()
-        scene.size = CGSize(width: 350, height: 450)
-        scene.scaleMode = .fill
-        scene.backgroundColor = UIColor(named: "PastelGray")!
-        scene.sugarCubes = userHealthViewModel.sugarGrams
-        return scene
-    }
-
     var body: some View {
         let sugarGrams = userHealthViewModel.sugarGrams
         let recomendSugar = Int(userHealthViewModel.recomendSugar)
         let sugarLimit = userHealthViewModel.limitSugarGrams
+        let scene = SugarContainerScene(sugarGrams)
         
         VStack {
             HStack {

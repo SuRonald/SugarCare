@@ -27,6 +27,8 @@ class SplashViewController: UIViewController {
             }
             else {
                 print("Udah Pernah")
+                UserHealthViewModel.shared.getUserData()
+                UserHealthViewModel.shared.getSugarData()
                 self.navigationController?.setViewControllers([MainViewController()], animated: true)
             }
         }

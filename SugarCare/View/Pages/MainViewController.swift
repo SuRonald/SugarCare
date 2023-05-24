@@ -11,8 +11,6 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
-    let userHealthViewModel = UserHealthViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,11 +19,10 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        userHealthViewModel.getUserData()
 //        print("Limit", userHealthViewModel.limitSugarGrams)
 //        print("Recommended", userHealthViewModel.recomendSugar)
         
-        let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: userHealthViewModel, mainViewController: self))
+        let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false

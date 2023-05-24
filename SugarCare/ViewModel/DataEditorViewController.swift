@@ -11,12 +11,10 @@ import SwiftUI
 class DataEditorViewController: UIViewController {
     
     let splashViewModel = SplashViewModel()
-    let userHealthViewModel = UserHealthViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         self.title = "User Data Editor"
         
         view.backgroundColor = .white
@@ -44,8 +42,8 @@ class DataEditorViewController: UIViewController {
             splashViewModel.setInitialOpen()
         }
         
-        userHealthViewModel.setUserData(weight: weight, height: height, year: year, genderMult: genderMult, activityMult: activityMult)
-        
+        UserHealthViewModel.shared.setUserData(weight: weight, height: height, year: year, genderMult: genderMult, activityMult: activityMult)
+        UserHealthViewModel.shared.getSugarData()
         navigateToMain()
     }
     
