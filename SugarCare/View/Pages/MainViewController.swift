@@ -19,10 +19,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        print("Limit", userHealthViewModel.limitSugarGrams)
-//        print("Recommended", userHealthViewModel.recomendSugar)
-        
-        let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self))
+        let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self, scene: SugarContainerScene(UserHealthViewModel.shared.sugarGrams, nodeType: "Sugar")))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false

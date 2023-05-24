@@ -11,17 +11,14 @@ import SpriteKit
 struct AddSugarView: View {
     let userHealthViewModel: UserHealthViewModel
     let addSugarViewController: AddSugarViewController
+    let scene: SugarContainerScene
     @State var addedSugar: Int = 1
-    
-    let scene = SugarContainerScene(1)
     
     var body: some View {
         VStack {
             SpriteView(scene: scene)
                 .cornerRadius(18)
                 .padding()
-            
-//            Spacer()
             
             HStack {
                 Spacer()
@@ -82,13 +79,10 @@ struct AddSugarView: View {
         .padding()
     }
     
-    func updateScene() {
-        
-    }
 }
 
 struct AddSugarView_Previews: PreviewProvider {
     static var previews: some View {
-        AddSugarView(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: AddSugarViewController(sugarOrigin: "Drink"))
+        AddSugarView(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: AddSugarViewController(sugarOrigin: "Drink"), scene: SugarContainerScene(1, nodeType: "Drink"))
     }
 }

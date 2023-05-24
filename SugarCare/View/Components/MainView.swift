@@ -11,12 +11,12 @@ import SpriteKit
 struct MainView: View {
     let userHealthViewModel: UserHealthViewModel
     let mainViewController: MainViewController
+    let scene: SugarContainerScene
     
     var body: some View {
         let sugarGrams = userHealthViewModel.sugarGrams
         let recomendSugar = Int(userHealthViewModel.recomendSugar)
         let sugarLimit = userHealthViewModel.limitSugarGrams
-        let scene = SugarContainerScene(sugarGrams)
         
         VStack {
             HStack {
@@ -64,7 +64,7 @@ struct MainView: View {
                     mainViewController.navigateToSnack()
                 }, label: {
                     VStack {
-                        Image("Snack")
+                        Image("Snack/1")
                             .resizable()
                             .frame(width: 60, height: 60)
                         Text("Add Snack")
@@ -82,7 +82,7 @@ struct MainView: View {
                     mainViewController.navigateToDrink()
                 } label: {
                     VStack {
-                        Image("Drink")
+                        Image("Drink/1")
                             .resizable()
                             .frame(width: 60, height: 60)
                         Text("Add Drink")
@@ -102,6 +102,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(userHealthViewModel: UserHealthViewModel(), mainViewController: MainViewController())
+        MainView(userHealthViewModel: UserHealthViewModel(), mainViewController: MainViewController(), scene: SugarContainerScene(1, nodeType: "Sugar"))
     }
 }
