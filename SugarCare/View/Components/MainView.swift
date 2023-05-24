@@ -9,24 +9,43 @@ import SwiftUI
 import SpriteKit
 
 struct MainView: View {
+    let userHealthViewModel: UserHealthViewModel
     let mainViewController: MainViewController
     
     var scene: SKScene {
-        let scene = SugarContainer()
+        let scene = SugarContainerScene()
         scene.size = CGSize(width: 350, height: 450)
         scene.scaleMode = .fill
         scene.backgroundColor = UIColor(named: "PastelGray")!
-        scene.sugarCubes = 8
+        scene.sugarCubes = userHealthViewModel.sugarGrams
         return scene
     }
 
     var body: some View {
+        let sugarGrams = userHealthViewModel.sugarGrams
+        let recomendSugar = Int(userHealthViewModel.recomendSugar)
+        let sugarLimit = userHealthViewModel.limitSugarGrams
+        
         VStack {
             HStack {
-                Image("Liver/0")
-                Text("Your sugar intake for today is 50 grams")
-                    .padding()
-                    .cornerRadius(18)
+                if sugarGrams < recomendSugar {
+                    Image("Liver/0")
+                    Text("Your sugar intake for today is \(String(sugarGrams)) grams")
+                        .padding()
+                        .cornerRadius(18)
+                }
+                else if sugarGrams > recomendSugar && sugarGrams < sugarLimit {
+                    Image("Liver/1")
+                    Text("Your sugar intake for today is \(String(sugarGrams)) grams, i am already full")
+                        .padding()
+                        .cornerRadius(18)
+                }
+                else {
+                    Image("Liver/2")
+                    Text("Your sugar intake for today is \(String(sugarGrams)) grams, PLEASE STOP!")
+                        .padding()
+                        .cornerRadius(18)
+                }
             }
             
             SpriteView(scene: scene)
@@ -91,6 +110,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(mainViewController: MainViewController())
+        MainView(userHealthViewModel: UserHealthViewModel(), mainViewController: MainViewController())
     }
 }

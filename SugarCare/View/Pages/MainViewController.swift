@@ -10,15 +10,22 @@ import SwiftUI
 import SnapKit
 
 class MainViewController: UIViewController {
+    
+    let userHealthViewModel = UserHealthViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .blue
         
         self.title = "Sugar Care"
         navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(navigateToEditor)), animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        userHealthViewModel.getUserData()
+//        print("Limit", userHealthViewModel.limitSugarGrams)
+//        print("Recommended", userHealthViewModel.recomendSugar)
         
-        let hostingController = UIHostingController(rootView: MainView(mainViewController: self))
+        let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: userHealthViewModel, mainViewController: self))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
