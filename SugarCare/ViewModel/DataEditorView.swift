@@ -30,7 +30,7 @@ struct DataEditorView: View {
                         Text("\($0) cm").tag($0)
                     }
                 }
-                Picker("Year Date of Birth", selection: $year) {
+                Picker("Date of Birth (Year)", selection: $year) {
                     ForEach(currentYear - 75 ..< currentYear + 1) {
                         Text("\(String($0))").tag($0)
                     }

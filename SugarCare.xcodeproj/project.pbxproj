@@ -84,21 +84,12 @@
 				D609D55B2A1CB8B1005A3ADB /* SugarCare.entitlements */,
 				D609D5502A1C9F6E005A3ADB /* View */,
 				D609D5482A1C9BE2005A3ADB /* ViewModel */,
-				D609D5472A1C9BC6005A3ADB /* Model */,
 				D609D54B2A1C9C2A005A3ADB /* Applications */,
-				D609D5372A1C8D3A005A3ADB /* Assets.xcassets */,
-				D609D5392A1C8D3A005A3ADB /* LaunchScreen.storyboard */,
+				D609D5752A1F420A005A3ADB /* Resource */,
+				D609D5762A1F426C005A3ADB /* Helper */,
 				D609D53C2A1C8D3A005A3ADB /* Info.plist */,
-				D609D5662A1DFE3E005A3ADB /* DateExtension.swift */,
 			);
 			path = SugarCare;
-			sourceTree = "<group>";
-		};
-		D609D5472A1C9BC6005A3ADB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D609D5482A1C9BE2005A3ADB /* ViewModel */ = {
@@ -150,6 +141,23 @@
 				D609D5492A1C9BEB005A3ADB /* Pages */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D609D5752A1F420A005A3ADB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D609D5372A1C8D3A005A3ADB /* Assets.xcassets */,
+				D609D5392A1C8D3A005A3ADB /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D609D5762A1F426C005A3ADB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D609D5662A1DFE3E005A3ADB /* DateExtension.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
