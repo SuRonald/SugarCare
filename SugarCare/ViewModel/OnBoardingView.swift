@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct OnBoardingView: View {
+    let userHealthViewModel: UserHealthViewModel
+    let onBoardingViewController: OnBoardingViewController
+    
     var body: some View {
         VStack {
             Text("Sugar Care")
@@ -35,7 +38,8 @@ struct OnBoardingView: View {
                 .padding(.bottom)
             
             Button("Authorize HealthKit") {
-                
+                userHealthViewModel.healthStoreHandler()
+                onBoardingViewController.navigateToEditor()
             }
             .padding()
             .padding(.horizontal)
@@ -49,6 +53,6 @@ struct OnBoardingView: View {
 
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingView()
+        OnBoardingView(userHealthViewModel: UserHealthViewModel(), onBoardingViewController: OnBoardingViewController())
     }
 }

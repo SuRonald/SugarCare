@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class AddSugarViewController: UIViewController {
 
@@ -23,10 +24,20 @@ class AddSugarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         self.title = "Add \(sugarOrigin)"
         
-        view.backgroundColor = .white
+        let hostingController = UIHostingController(rootView: AddSugarView(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: self, scene: SugarContainerScene(1, nodeType: sugarOrigin)))
+        addChild(hostingController)
+        view.addSubview(hostingController.view)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        hostingController.view.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(view)
+        }
+        hostingController.didMove(toParent: self)
     }
 
+    func navigateBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

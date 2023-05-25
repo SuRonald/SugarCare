@@ -9,11 +9,11 @@ import UIKit
 import SwiftUI
 
 class OnBoardingViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let hostingController = UIHostingController(rootView: OnBoardingView())
+        let hostingController = UIHostingController(rootView: OnBoardingView(userHealthViewModel: UserHealthViewModel.shared, onBoardingViewController: self))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -23,4 +23,9 @@ class OnBoardingViewController: UIViewController {
         hostingController.didMove(toParent: self)
     }
 
+    func navigateToEditor() {
+        let destination = DataEditorViewController()
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    
 }

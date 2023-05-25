@@ -10,22 +10,25 @@ import SwiftUI
 import SnapKit
 
 class MainViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .blue
         
         self.title = "Sugar Care"
         navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(navigateToEditor)), animated: true)
-        
-        let hostingController = UIHostingController(rootView: MainView(mainViewController: self))
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        hostingController.view.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UserHealthViewModel.shared.getSugarData {
+            let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self, scene: SugarContainerScene(UserHealthViewModel.shared.sugarGrams, nodeType: "Sugar")))
+            self.addChild(hostingController)
+            self.view.addSubview(hostingController.view)
+            hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+            hostingController.view.snp.makeConstraints { make in
+                make.leading.trailing.top.bottom.equalTo(self.view)
+            }
+            hostingController.didMove(toParent: self)
         }
-        hostingController.didMove(toParent: self)
     }
 
     func navigateToSnack() {

@@ -14,8 +14,7 @@
 		D609D53B2A1C8D3A005A3ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D609D5392A1C8D3A005A3ADB /* LaunchScreen.storyboard */; };
 		D609D5442A1C9203005A3ADB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D609D5432A1C9203005A3ADB /* SnapKit */; };
 		D609D5462A1C944F005A3ADB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D5452A1C944F005A3ADB /* MainView.swift */; };
-		D609D54D2A1C9C65005A3ADB /* SugarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D54C2A1C9C65005A3ADB /* SugarContainer.swift */; };
-		D609D54F2A1C9EF7005A3ADB /* SugarTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D54E2A1C9EF7005A3ADB /* SugarTrackerViewModel.swift */; };
+		D609D54D2A1C9C65005A3ADB /* SugarContainerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D54C2A1C9C65005A3ADB /* SugarContainerScene.swift */; };
 		D609D5522A1C9FB2005A3ADB /* DataEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D5512A1C9FB2005A3ADB /* DataEditorViewController.swift */; };
 		D609D5542A1CA159005A3ADB /* AddSugarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D5532A1CA159005A3ADB /* AddSugarViewController.swift */; };
 		D609D5562A1CB0D6005A3ADB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D5552A1CB0D6005A3ADB /* SplashViewController.swift */; };
@@ -23,6 +22,9 @@
 		D609D55D2A1CC07E005A3ADB /* DataEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D55C2A1CC07E005A3ADB /* DataEditorView.swift */; };
 		D609D55F2A1CC83D005A3ADB /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D55E2A1CC83D005A3ADB /* OnBoardingViewController.swift */; };
 		D609D5612A1CC856005A3ADB /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D5602A1CC856005A3ADB /* OnBoardingView.swift */; };
+		D609D5652A1DE2AC005A3ADB /* UserHealthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D5642A1DE2AC005A3ADB /* UserHealthViewModel.swift */; };
+		D609D5672A1DFE3E005A3ADB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D5662A1DFE3E005A3ADB /* DateExtension.swift */; };
+		D609D5692A1E0ADB005A3ADB /* AddSugarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609D5682A1E0ADB005A3ADB /* AddSugarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +36,7 @@
 		D609D53A2A1C8D3A005A3ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D609D53C2A1C8D3A005A3ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D609D5452A1C944F005A3ADB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		D609D54C2A1C9C65005A3ADB /* SugarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarContainer.swift; sourceTree = "<group>"; };
-		D609D54E2A1C9EF7005A3ADB /* SugarTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarTrackerViewModel.swift; sourceTree = "<group>"; };
+		D609D54C2A1C9C65005A3ADB /* SugarContainerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarContainerScene.swift; sourceTree = "<group>"; };
 		D609D5512A1C9FB2005A3ADB /* DataEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataEditorViewController.swift; path = SugarCare/ViewModel/DataEditorViewController.swift; sourceTree = SOURCE_ROOT; };
 		D609D5532A1CA159005A3ADB /* AddSugarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddSugarViewController.swift; path = SugarCare/ViewModel/AddSugarViewController.swift; sourceTree = SOURCE_ROOT; };
 		D609D5552A1CB0D6005A3ADB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = SugarCare/ViewModel/SplashViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -44,6 +45,9 @@
 		D609D55C2A1CC07E005A3ADB /* DataEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataEditorView.swift; path = SugarCare/ViewModel/DataEditorView.swift; sourceTree = SOURCE_ROOT; };
 		D609D55E2A1CC83D005A3ADB /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnBoardingViewController.swift; path = SugarCare/ViewModel/OnBoardingViewController.swift; sourceTree = SOURCE_ROOT; };
 		D609D5602A1CC856005A3ADB /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnBoardingView.swift; path = SugarCare/ViewModel/OnBoardingView.swift; sourceTree = SOURCE_ROOT; };
+		D609D5642A1DE2AC005A3ADB /* UserHealthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHealthViewModel.swift; sourceTree = "<group>"; };
+		D609D5662A1DFE3E005A3ADB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		D609D5682A1E0ADB005A3ADB /* AddSugarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSugarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,27 +84,19 @@
 				D609D55B2A1CB8B1005A3ADB /* SugarCare.entitlements */,
 				D609D5502A1C9F6E005A3ADB /* View */,
 				D609D5482A1C9BE2005A3ADB /* ViewModel */,
-				D609D5472A1C9BC6005A3ADB /* Model */,
 				D609D54B2A1C9C2A005A3ADB /* Applications */,
-				D609D5372A1C8D3A005A3ADB /* Assets.xcassets */,
-				D609D5392A1C8D3A005A3ADB /* LaunchScreen.storyboard */,
+				D609D5752A1F420A005A3ADB /* Resource */,
+				D609D5762A1F426C005A3ADB /* Helper */,
 				D609D53C2A1C8D3A005A3ADB /* Info.plist */,
 			);
 			path = SugarCare;
 			sourceTree = "<group>";
 		};
-		D609D5472A1C9BC6005A3ADB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		D609D5482A1C9BE2005A3ADB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D609D54E2A1C9EF7005A3ADB /* SugarTrackerViewModel.swift */,
 				D609D5592A1CB443005A3ADB /* SplashViewModel.swift */,
+				D609D5642A1DE2AC005A3ADB /* UserHealthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -122,8 +118,9 @@
 			children = (
 				D609D5602A1CC856005A3ADB /* OnBoardingView.swift */,
 				D609D5452A1C944F005A3ADB /* MainView.swift */,
-				D609D54C2A1C9C65005A3ADB /* SugarContainer.swift */,
+				D609D54C2A1C9C65005A3ADB /* SugarContainerScene.swift */,
 				D609D55C2A1CC07E005A3ADB /* DataEditorView.swift */,
+				D609D5682A1E0ADB005A3ADB /* AddSugarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -144,6 +141,23 @@
 				D609D5492A1C9BEB005A3ADB /* Pages */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D609D5752A1F420A005A3ADB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D609D5372A1C8D3A005A3ADB /* Assets.xcassets */,
+				D609D5392A1C8D3A005A3ADB /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D609D5762A1F426C005A3ADB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D609D5662A1DFE3E005A3ADB /* DateExtension.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,16 +237,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D609D5332A1C8D39005A3ADB /* MainViewController.swift in Sources */,
+				D609D5672A1DFE3E005A3ADB /* DateExtension.swift in Sources */,
 				D609D5542A1CA159005A3ADB /* AddSugarViewController.swift in Sources */,
 				D609D5462A1C944F005A3ADB /* MainView.swift in Sources */,
 				D609D55F2A1CC83D005A3ADB /* OnBoardingViewController.swift in Sources */,
 				D609D55D2A1CC07E005A3ADB /* DataEditorView.swift in Sources */,
+				D609D5652A1DE2AC005A3ADB /* UserHealthViewModel.swift in Sources */,
+				D609D5692A1E0ADB005A3ADB /* AddSugarView.swift in Sources */,
 				D609D5562A1CB0D6005A3ADB /* SplashViewController.swift in Sources */,
-				D609D54D2A1C9C65005A3ADB /* SugarContainer.swift in Sources */,
+				D609D54D2A1C9C65005A3ADB /* SugarContainerScene.swift in Sources */,
 				D609D55A2A1CB443005A3ADB /* SplashViewModel.swift in Sources */,
 				D609D5522A1C9FB2005A3ADB /* DataEditorViewController.swift in Sources */,
 				D609D52F2A1C8D39005A3ADB /* AppDelegate.swift in Sources */,
-				D609D54F2A1C9EF7005A3ADB /* SugarTrackerViewModel.swift in Sources */,
 				D609D5312A1C8D39005A3ADB /* SceneDelegate.swift in Sources */,
 				D609D5612A1CC856005A3ADB /* OnBoardingView.swift in Sources */,
 			);
@@ -377,6 +393,8 @@
 				DEVELOPMENT_TEAM = T872JMS8WL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SugarCare/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Permission to Read Your Health Data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Permission to Update Your Health Data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -405,6 +423,8 @@
 				DEVELOPMENT_TEAM = T872JMS8WL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SugarCare/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Permission to Read Your Health Data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Permission to Update Your Health Data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
