@@ -14,9 +14,6 @@ class UserHealthViewModel {
     static let shared = UserHealthViewModel()
     
     let healthStore = HKHealthStore()
-//    var heightData: Double?
-//    var weightData: Double?
-//    var dobYearData: Int?
     var sugarGrams: Int = 0
     
     var weight: Float = 0
@@ -32,23 +29,14 @@ class UserHealthViewModel {
         height = UserDefaults.standard.float(forKey: "height")
         year = UserDefaults.standard.integer(forKey: "year")
         activityMult = UserDefaults.standard.integer(forKey: "activityMult")
-        getGender()
-        getSugarLimit()
-    }
-    
-    func getGender() {
+        limitSugarGrams = UserDefaults.standard.integer(forKey: "limitSugarGrams")
         genderMult = UserDefaults.standard.integer(forKey: "genderMult")
-        
         if genderMult == 5 {
             recomendSugar = 37.5
         }
         else if genderMult == -161 {
             recomendSugar = 25
         }
-    }
-    
-    func getSugarLimit() {
-        limitSugarGrams = UserDefaults.standard.integer(forKey: "limitSugarGrams")
     }
     
     func setUserData(weight: Float, height: Float, year: Int, genderMult: Int, activityMult: Float) {
@@ -93,7 +81,7 @@ class UserHealthViewModel {
         }
     }
     
-    func getSugarData() {
+    func getSugarData(completion: @escaping () -> ()) {
         self.sugarGrams = 0
         
         guard let sugarSampleType = HKSampleType.quantityType(forIdentifier: .dietarySugar) else {
@@ -113,14 +101,12 @@ class UserHealthViewModel {
                     self.sugarGrams += Int(newData[i].quantity.doubleValue(for: HKUnit.gram()))
                 }
             }
+            
+            completion()
         }
-        
-        print(self.sugarGrams)
     }
     
     func getMostRecentSample(for sampleType: HKSampleType, completion: @escaping ([HKQuantitySample]?, Error?) -> ()) {
-//        print(Date())
-//        print(Date().dayBefore)
         let mostRecentPredicate = HKQuery.predicateForSamples(withStart: Date().dayBefore, end: Date(), options: .strictEndDate)
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
         let limit = 200

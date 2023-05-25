@@ -19,14 +19,16 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self, scene: SugarContainerScene(UserHealthViewModel.shared.sugarGrams, nodeType: "Sugar")))
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        hostingController.view.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view)
+        UserHealthViewModel.shared.getSugarData {
+            let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self, scene: SugarContainerScene(UserHealthViewModel.shared.sugarGrams, nodeType: "Sugar")))
+            self.addChild(hostingController)
+            self.view.addSubview(hostingController.view)
+            hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+            hostingController.view.snp.makeConstraints { make in
+                make.leading.trailing.top.bottom.equalTo(self.view)
+            }
+            hostingController.didMove(toParent: self)
         }
-        hostingController.didMove(toParent: self)
     }
 
     func navigateToSnack() {

@@ -43,8 +43,8 @@ class DataEditorViewController: UIViewController {
         }
         
         UserHealthViewModel.shared.setUserData(weight: weight, height: height, year: year, genderMult: genderMult, activityMult: activityMult)
-        UserHealthViewModel.shared.getSugarData()
         navigateToMain()
+        
     }
     
     func navigateToMain() {

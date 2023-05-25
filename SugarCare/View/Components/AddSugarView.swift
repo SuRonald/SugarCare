@@ -67,8 +67,8 @@ struct AddSugarView: View {
             
             Button {
                 userHealthViewModel.saveSugarSample(dietarySugar: Double(addedSugar))
-                userHealthViewModel.getSugarData()
                 addSugarViewController.navigateBack()
+                
             } label: {
                 Text("Save")
                     .font(.title3)
