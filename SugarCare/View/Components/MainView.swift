@@ -24,19 +24,16 @@ struct MainView: View {
                     Image("Liver/0")
                     Text("Your sugar intake for today is \(String(sugarGrams)) grams")
                         .padding()
-                        .cornerRadius(18)
                 }
                 else if sugarGrams > recomendSugar && sugarGrams < sugarLimit {
                     Image("Liver/1")
                     Text("Your sugar intake for today is \(String(sugarGrams)) grams, i am already full")
                         .padding()
-                        .cornerRadius(18)
                 }
                 else {
                     Image("Liver/2")
                     Text("Your sugar intake for today is \(String(sugarGrams)) grams, PLEASE STOP!")
                         .padding()
-                        .cornerRadius(18)
                 }
             }
             

@@ -11,6 +11,7 @@ import SwiftUI
 class AddSugarViewController: UIViewController {
 
     var sugarOrigin: String
+    var sugarContainer: SugarContainerScene?
     
     init(sugarOrigin: String) {
         self.sugarOrigin = sugarOrigin
@@ -26,7 +27,8 @@ class AddSugarViewController: UIViewController {
 
         self.title = "Add \(sugarOrigin)"
         
-        let hostingController = UIHostingController(rootView: AddSugarView(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: self, scene: SugarContainerScene(1, nodeType: sugarOrigin)))
+        sugarContainer = SugarContainerScene(1, nodeType: sugarOrigin)
+        let hostingController = UIHostingController(rootView: AddSugarView(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: self, scene: sugarContainer!))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -40,4 +42,15 @@ class AddSugarViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            self.sugarContainer?.setShakeState(true)
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            self.sugarContainer?.setShakeState(false)
+        }
+    }
 }

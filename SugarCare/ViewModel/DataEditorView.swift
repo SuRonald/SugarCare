@@ -49,7 +49,7 @@ struct DataEditorView: View {
             }
             
             Section("") {
-                Button("Save User Data") {
+                Button {
                     var mult: Float = 0
                     
                     if activityMult == 1 {
@@ -69,7 +69,14 @@ struct DataEditorView: View {
                     }
                     
                     dataEditorViewController.saveHandler(weight: Float(weight), height: Float(height), year: year, genderMult: genderMult, activityMult: mult)
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Save User Data")
+                        Spacer()
+                    }
                 }
+
             }
         }
     }
