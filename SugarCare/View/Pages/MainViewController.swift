@@ -11,6 +11,8 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
+    var sugarContainer: SugarContainerScene?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +22,9 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         UserHealthViewModel.shared.getSugarData {
-            let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self, scene: SugarContainerScene(UserHealthViewModel.shared.sugarGrams, nodeType: "Sugar")))
+            
+            self.sugarContainer = SugarContainerScene(UserHealthViewModel.shared.sugarGrams, nodeType: "Sugar")
+            let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self, scene: self.sugarContainer!))
             self.addChild(hostingController)
             self.view.addSubview(hostingController.view)
             hostingController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +49,18 @@ class MainViewController: UIViewController {
     
     @objc func navigateToEditor() {
         navigationController?.pushViewController(DataEditorViewController(), animated: true)
+    }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            self.sugarContainer?.setShakeState(true)
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            self.sugarContainer?.setShakeState(false)
+        }
     }
 }
 
