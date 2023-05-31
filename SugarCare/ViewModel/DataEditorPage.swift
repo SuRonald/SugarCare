@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DataEditorView: View {
+struct DataEditorPage: View {
     let currentYear = Calendar.current.component(.year, from: Date())
     let dataEditorViewController: DataEditorViewController
     
@@ -84,6 +84,6 @@ struct DataEditorView: View {
 
 struct DataEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        DataEditorView(dataEditorViewController: DataEditorViewController())
+        DataEditorPage(dataEditorViewController: DataEditorViewController())
     }
 }

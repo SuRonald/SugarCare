@@ -13,7 +13,7 @@ class OnBoardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let hostingController = UIHostingController(rootView: OnBoardingView(userHealthViewModel: UserHealthViewModel.shared, onBoardingViewController: self))
+        let hostingController = UIHostingController(rootView: OnBoardingPage(userHealthViewModel: UserHealthViewModel.shared, onBoardingViewController: self))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OnBoardingView: View {
+struct OnBoardingPage: View {
     let userHealthViewModel: UserHealthViewModel
     let onBoardingViewController: OnBoardingViewController
     
@@ -53,6 +53,6 @@ struct OnBoardingView: View {
 
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingView(userHealthViewModel: UserHealthViewModel(), onBoardingViewController: OnBoardingViewController())
+        OnBoardingPage(userHealthViewModel: UserHealthViewModel(), onBoardingViewController: OnBoardingViewController())
     }
 }

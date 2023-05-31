@@ -28,7 +28,7 @@ class AddSugarViewController: UIViewController {
         self.title = "Add \(sugarOrigin)"
         
         sugarContainer = SugarContainerScene(1, nodeType: sugarOrigin)
-        let hostingController = UIHostingController(rootView: AddSugarView(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: self, scene: sugarContainer!))
+        let hostingController = UIHostingController(rootView: AddSugarPage(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: self, scene: sugarContainer!))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false

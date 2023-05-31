@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         UserHealthViewModel.shared.getSugarData {
             
             self.sugarContainer = SugarContainerScene(UserHealthViewModel.shared.sugarGrams, nodeType: "Sugar")
-            let hostingController = UIHostingController(rootView: MainView(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self, scene: self.sugarContainer!))
+            let hostingController = UIHostingController(rootView: MainPage(userHealthViewModel: UserHealthViewModel.shared, mainViewController: self, scene: self.sugarContainer!))
             self.addChild(hostingController)
             self.view.addSubview(hostingController.view)
             hostingController.view.translatesAutoresizingMaskIntoConstraints = false

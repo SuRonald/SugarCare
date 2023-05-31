@@ -21,7 +21,7 @@ class DataEditorViewController: UIViewController {
         
         navigationItem.setLeftBarButton(UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelHandler)), animated: true)
         
-        let hostingController = UIHostingController(rootView: DataEditorView(dataEditorViewController: self, weight: 50, height: 70, year: 1990, activityMult: 1))
+        let hostingController = UIHostingController(rootView: DataEditorPage(dataEditorViewController: self, weight: 50, height: 70, year: 1990, activityMult: 1))
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false

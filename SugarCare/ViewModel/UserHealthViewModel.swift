@@ -7,7 +7,6 @@
 
 import Foundation
 import HealthKit
-import SwiftUI
 
 class UserHealthViewModel {
     
@@ -145,7 +144,7 @@ class UserHealthViewModel {
         
         HKHealthStore().save(dietarySugarSample) { (success, error) in
             if !success {
-                print(error)
+                print(error!)
             }
         }
     }

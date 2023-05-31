@@ -8,7 +8,7 @@
 import SwiftUI
 import SpriteKit
 
-struct AddSugarView: View {
+struct AddSugarPage: View {
     let userHealthViewModel: UserHealthViewModel
     let addSugarViewController: AddSugarViewController
     let scene: SugarContainerScene
@@ -83,6 +83,6 @@ struct AddSugarView: View {
 
 struct AddSugarView_Previews: PreviewProvider {
     static var previews: some View {
-        AddSugarView(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: AddSugarViewController(sugarOrigin: "Drink"), scene: SugarContainerScene(1, nodeType: "Drink"))
+        AddSugarPage(userHealthViewModel: UserHealthViewModel.shared, addSugarViewController: AddSugarViewController(sugarOrigin: "Drink"), scene: SugarContainerScene(1, nodeType: "Drink"))
     }
 }
