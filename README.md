@@ -1,5 +1,10 @@
 # SugarCare
 An app that get and set dietary sugar data using HealtKit Framework
+|   |   |   |
+|:-:|:-:|:-:|
+|![](Documentation/SplashScreen.png)|![](Documentation/OnBoardingPage.png)|![](Documentation/MainPage.png)|
+|![](Documentation/DataEditorPage.png)|![](Documentation/AddDrinkPage.png)|![](Documentation/AddSnackPage.png)|
+
 
 ## Attribution
 The images used in the app is dowloaded from [freepik](https://www.freepik.com/) and [flaticon](https://www.flaticon.com/) from various illustrator.
