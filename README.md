@@ -1,5 +1,10 @@
 # SugarCare
-An app that get and set dietary sugar data using HealtKit Framework
+An app that get and set dietary sugar data using HealthKit Framework.
+
+Interested with my backstory and some of the steps using HealthKit?
+
+Please visit my article on medium [here](https://medium.com/@ronald.sumichael/sugar-care-sugar-intake-app-in-swift-c038886ba17b)
+
 |   |   |   |
 |:-:|:-:|:-:|
 |![](Documentation/SplashScreen.png)|![](Documentation/OnBoardingPage.png)|![](Documentation/MainPage.png)|
